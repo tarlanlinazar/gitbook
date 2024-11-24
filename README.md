@@ -1,3 +1,7 @@
+---
+layout: landing
+---
+
 # m10 e-commerce API Description
 
 ## Get started
