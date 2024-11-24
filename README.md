@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # m10 e-commerce API Description
 
 ## Get started
