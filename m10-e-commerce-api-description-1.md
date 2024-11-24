@@ -1,4 +1,5 @@
 ---
+icon: '1'
 layout:
   title:
     visible: true
@@ -12,7 +13,7 @@ layout:
     visible: true
 ---
 
-# 🇬🇧 m10 e-commerce API Description
+# 🇷🇺 m10 e-commerce API Description
 
 ## Get started
 
