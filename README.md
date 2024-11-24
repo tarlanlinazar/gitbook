@@ -544,8 +544,6 @@ The tokenizationId is identical to the orderId from the create tokenization or c
 
 Allows to get the user token from m10. tokenizationId is same to operationId from the create token response.
 
-{% include ".gitbook/includes/warning.md" %}
-
 
 
 **Request parameters:**
