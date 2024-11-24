@@ -86,7 +86,7 @@ If the callback is not received, use the method **Get order or transaction detai
 
 **Body**
 
-<table data-header-hidden data-full-width="true"><thead><tr><th width="145"></th><th width="100"></th><th width="106"></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>upLZGwJhAJGdxTlwoF89v98YLDFWNFPi</td></tr><tr><td>currencyISO</td><td>string</td><td>true</td><td>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</td><td>Currency ISO of the transaction</td><td>AZN</td></tr><tr><td>amount</td><td>string</td><td>true</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Amount of the transaction</td><td>10.51</td></tr><tr><td>confirmURL</td><td>string</td><td>false</td><td>url</td><td>URL to redirect user in case of success payment</td><td>https://merchant.com/success/{orderId}</td></tr><tr><td>cancelURL</td><td>string</td><td>false</td><td>url</td><td>URL to redirect user in case payment was canceled</td><td>https://merchant.com/cancel/{orderId}</td></tr><tr><td>errorURL</td><td>string</td><td>false</td><td>url</td><td>URL to redirect user in case of error</td><td>https://merchant.com/error/{orderId}</td></tr><tr><td><strong>extKycInfo</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>User KYC info</strong></td><td><strong>-</strong></td></tr><tr><td>firstName</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s first name</td><td>"extKycInfo": {<br>        "firstName": "TestName",<br>        "lastName": "TestLastName",<br>        "middleName": "TestMiddleName",<br>        "birthdate": "21.02.1988",<br>        "nationality": "Azerbaijan"<br>    }</td></tr><tr><td>lastName</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s last name</td><td></td></tr><tr><td>middleName</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s middle name</td><td></td></tr><tr><td>birthdate</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s birthdate</td><td></td></tr><tr><td>nationality</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s nationality</td><td></td></tr><tr><td>userdata</td><td>string</td><td>false</td><td>-</td><td>Any userdata, not parsed on m10 side, returned unchanged in callback</td><td>-</td></tr><tr><td><strong>metadata</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>Additional parameters</strong></td><td><strong>-</strong></td></tr><tr><td>additionalProp1</td><td>string</td><td>false</td><td>-</td><td>Additional merchant specific parameters</td><td></td></tr></tbody></table>
+<table data-header-hidden data-full-width="true"><thead><tr><th width="145"></th><th width="100"></th><th width="106"></th><th></th><th width="249"></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>upLZGwJhAJGdxTlwoF89v98YLDFWNFPi</td></tr><tr><td>currencyISO</td><td>string</td><td>true</td><td>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</td><td>Currency ISO of the transaction</td><td>AZN</td></tr><tr><td>amount</td><td>string</td><td>true</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Amount of the transaction</td><td>10.51</td></tr><tr><td>confirmURL</td><td>string</td><td>false</td><td>url</td><td>URL to redirect user in case of success payment</td><td>https://merchant.com/success/{orderId}</td></tr><tr><td>cancelURL</td><td>string</td><td>false</td><td>url</td><td>URL to redirect user in case payment was canceled</td><td>https://merchant.com/cancel/{orderId}</td></tr><tr><td>errorURL</td><td>string</td><td>false</td><td>url</td><td>URL to redirect user in case of error</td><td>https://merchant.com/error/{orderId}</td></tr><tr><td><strong>extKycInfo</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>User KYC info</strong></td><td><strong>-</strong></td></tr><tr><td>firstName</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s first name</td><td>"extKycInfo": {<br>        "firstName": "TestName",<br>        "lastName": "TestLastName",<br>        "middleName": "TestMiddleName",<br>        "birthdate": "21.02.1988",<br>        "nationality": "Azerbaijan"<br>    }</td></tr><tr><td>lastName</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s last name</td><td></td></tr><tr><td>middleName</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s middle name</td><td></td></tr><tr><td>birthdate</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s birthdate</td><td></td></tr><tr><td>nationality</td><td>string</td><td>false</td><td>maxLength: 100<br>minLength: 0</td><td>User’s nationality</td><td></td></tr><tr><td>userdata</td><td>string</td><td>false</td><td>-</td><td>Any userdata, not parsed on m10 side, returned unchanged in callback</td><td>-</td></tr><tr><td><strong>metadata</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>Additional parameters</strong></td><td><strong>-</strong></td></tr><tr><td>additionalProp1</td><td>string</td><td>false</td><td>-</td><td>Additional merchant specific parameters</td><td></td></tr></tbody></table>
 
 **Request example:**
 
@@ -193,17 +193,17 @@ _**Code:**_ 200 OK
 
 _**Body:**_
 
+{% code fullWidth="true" %}
 ```json
 {
   "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
+{% endcode %}
 
 **Description**
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                             | **Example**                          |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------ |
-| transactionId | string   | true         | uuid                                                        | Id of successful payment/refund operation obtained from m10 | 3fa85f64-5717-4562-b3fc-2c963f66afa6 |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>transactionId</td><td>string</td><td>true</td><td>uuid</td><td>Id of successful payment/refund operation obtained from m10</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr></tbody></table>
 
 ***
 
@@ -217,24 +217,15 @@ Creates a refund operation on m10. The field originalTransactionId from the body
 
 _**Header**_
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                  | **Example**           |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | -------------------------------- | --------------------- |
-| Authorization | string   | true         | ^Bearer \[a-zA-Z0-9\_-\|]{5,24}:\[a-zA-Z0-9-]{36}           | Auth header with Bearer \<token> | Bearer \<AccessToken> |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>Authorization</td><td>string</td><td>true</td><td>^Bearer [a-zA-Z0-9_-|]{5,24}:[a-zA-Z0-9-]{36}</td><td>Auth header with Bearer &#x3C;token></td><td>Bearer &#x3C;AccessToken></td></tr></tbody></table>
 
 _**Body**_
 
-| **Name**              | **Type**   | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                                                                                                                                                                                   | **Example**                          |
-| --------------------- | ---------- | ------------ | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| orderId               | string     | true         | \[a-zA-Z0-9\_-]{20,64}                                      | <p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p> | ktkKscy0WJCbY3ghZcQAu-eOFq           |
-| originalTransactionId | string     | true         | uuid                                                        | Unique ID of the original transaction in m10 in case of refund                                                                                                                                                                                                    | 3fa85f64-5717-4562-b3fc-2c963f66afa6 |
-| currencyISO           | string     | true         | <p>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</p>         | Currency ISO of the transaction                                                                                                                                                                                                                                   | AZN                                  |
-| amount                | string     | true         | <p>"maximum":<br>1000000000 "minimum":<br>1</p>             | Amount to refund. Can be less than total payment amount. Sum of all refunds for the payment must not exceed total payment amount.                                                                                                                                 | 10.51                                |
-| userdata              | string     | false        | -                                                           | Any userdata, not parsed on m10 side, returned unchanged in callback                                                                                                                                                                                              | -                                    |
-| **metadata**          | **object** | **false**    | **-**                                                       | **Additional parameters**                                                                                                                                                                                                                                         | **-**                                |
-| additionalProp1       | string     | false        | -                                                           | Additional merchant specific parameters                                                                                                                                                                                                                           |                                      |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>ktkKscy0WJCbY3ghZcQAu-eOFq</td></tr><tr><td>originalTransactionId</td><td>string</td><td>true</td><td>uuid</td><td>Unique ID of the original transaction in m10 in case of refund</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr><tr><td>currencyISO</td><td>string</td><td>true</td><td>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</td><td>Currency ISO of the transaction</td><td>AZN</td></tr><tr><td>amount</td><td>string</td><td>true</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Amount to refund. Can be less than total payment amount. Sum of all refunds for the payment must not exceed total payment amount.</td><td>10.51</td></tr><tr><td>userdata</td><td>string</td><td>false</td><td>-</td><td>Any userdata, not parsed on m10 side, returned unchanged in callback</td><td>-</td></tr><tr><td><strong>metadata</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>Additional parameters</strong></td><td><strong>-</strong></td></tr><tr><td>additionalProp1</td><td>string</td><td>false</td><td>-</td><td>Additional merchant specific parameters</td><td></td></tr></tbody></table>
 
 **Request example:**
 
+{% code fullWidth="true" %}
 ```url
 curl -X 'POST' \
   'https://develop.m10payments.com/online-acquiring/api/v1/orders/actions/create-refund' \
@@ -254,6 +245,7 @@ curl -X 'POST' \
   }
 }'
 ```
+{% endcode %}
 
 **Response example**
 
@@ -261,17 +253,17 @@ _**Code:**_ 200 OK
 
 _**Body:**_
 
+{% code fullWidth="true" %}
 ```json
 {
   "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
+{% endcode %}
 
 **Description**
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                             | **Example**                          |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------ |
-| transactionId | string   | true         | uuid                                                        | Id of successful payment/refund operation obtained from m10 | 3fa85f64-5717-4562-b3fc-2c963f66afa6 |
+<table data-header-hidden data-full-width="true"><thead><tr><th width="151"></th><th width="88"></th><th width="109"></th><th width="100"></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>transactionId</td><td>string</td><td>true</td><td>uuid</td><td>Id of successful payment/refund operation obtained from m10</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr></tbody></table>
 
 ***
 
@@ -289,18 +281,15 @@ You can get transactionId from the payment creation response.
 
 _**Header**_
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                  | **Example**           |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | -------------------------------- | --------------------- |
-| Authorization | string   | true         | ^Bearer \[a-zA-Z0-9\_-\|]{5,24}:\[a-zA-Z0-9-]{36}           | Auth header with Bearer \<token> | Bearer \<AccessToken> |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>Authorization</td><td>string</td><td>true</td><td>^Bearer [a-zA-Z0-9_-|]{5,24}:[a-zA-Z0-9-]{36}</td><td>Auth header with Bearer &#x3C;token></td><td>Bearer &#x3C;AccessToken></td></tr></tbody></table>
 
 _**Path variable**_
 
-| **Name** | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                                                                                                                                                                            | **Example**                |
-| -------- | -------- | ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| orderId  | string   | true         | \[a-zA-Z0-9\_-]{20,64}                                      | <p>orderId supplied by merchant in the initial request</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p> | ktkKscy0WJCbY3ghZcQAu-eOFq |
+<table data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>orderId supplied by merchant in the initial request</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>ktkKscy0WJCbY3ghZcQAu-eOFq</td></tr></tbody></table>
 
 **Request example:**
 
+{% code fullWidth="true" %}
 ```url
 curl -X 'GET' \
   'https://develop.m10payments.com/online-acquiring/api/v1/online-acquiring/orders/
@@ -308,11 +297,13 @@ curl -X 'GET' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer <AccessToken>'
 ```
+{% endcode %}
 
 **Response example**
 
 _**Code:**_ 200 OK
 
+{% code fullWidth="true" %}
 ```json
 {
   "amount": "10.51",
@@ -328,23 +319,11 @@ _**Code:**_ 200 OK
   "userdata": "string"
 }
 ```
+{% endcode %}
 
 **Description**
 
-| **Name**              | **Type**   | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p>                | **Description**                                                                                                                                                                                                                                                   | **Example**                          |
-| --------------------- | ---------- | ------------ | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| amount                | string     | false        | <p>"maximum":<br>1000000000 "minimum":<br>1</p>                            | <p>Transaction amount.<br><em><strong>In case of purchase:</strong></em> amount paid by user.<br><em><strong>In case of refund:</strong></em> amount paid by merchant.</p>                                                                                        | 10.51                                |
-| currencyISO           | string     | true         | <p>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</p>                        | Currency ISO of the transaction                                                                                                                                                                                                                                   | AZN                                  |
-| **metadata**          | **object** | **false**    | **-**                                                                      | **Additional parameters**                                                                                                                                                                                                                                         | **-**                                |
-| additionalProp1       | string     | false        | -                                                                          | Additional merchant specific parameters                                                                                                                                                                                                                           |                                      |
-| netAmount             | string     | false        | <p>"maximum":<br>1000000000 "minimum":<br>1</p>                            | <p>Final amount received.<br><em><strong>In case of purchase:</strong></em> amount paid to merchant.<br><em><strong>In case of refund:</strong></em> amount paid to user.</p>                                                                                     | 10.3                                 |
-| orderId               | string     | true         | \[a-zA-Z0-9\_-]{20,64}                                                     | <p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p> | ktkKscy0WJCbY3ghZcQAu-eOFq           |
-| originalTransactionId | string     | false        | uuid                                                                       | Unique ID of the original transaction in m10 in case of refund                                                                                                                                                                                                    | null                                 |
-| status                | string     | false        | <p>enum:<br>"CREATED”, “IN_PROGRESS”, “SUCCESS”, “CANCEL"<br>“FAILURE"</p> | Order status in m10                                                                                                                                                                                                                                               | FAILURE                              |
-| transactionId         | string     | false        | uuid                                                                       | Unique ID of the processed transaction in m10. Null if order was canceled or not processed yet                                                                                                                                                                    | de039a25-fd0d-44a5-9969-8d504ba4c4e8 |
-| transactionType       | string     | true         | <p>enum:<br>”PAYMENT”, “REFUND”<br>“TOKENIZATION”</p>                      | Type of transaction                                                                                                                                                                                                                                               | PAYMENT                              |
-| userToken             | string     | false        | uuid                                                                       | Token for quick payment with saved m10 payment method when X-User-Tokenization header has value 'REQUIRED'                                                                                                                                                        | null                                 |
-| userdata              | string     | false        | -                                                                          | Any userdata previously supplied by the merchant, not parsed on m10 side, returned unchanged                                                                                                                                                                      | -                                    |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>amount</td><td>string</td><td>false</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Transaction amount.<br><em><strong>In case of purchase:</strong></em> amount paid by user.<br><em><strong>In case of refund:</strong></em> amount paid by merchant.</td><td>10.51</td></tr><tr><td>currencyISO</td><td>string</td><td>true</td><td>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</td><td>Currency ISO of the transaction</td><td>AZN</td></tr><tr><td><strong>metadata</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>Additional parameters</strong></td><td><strong>-</strong></td></tr><tr><td>additionalProp1</td><td>string</td><td>false</td><td>-</td><td>Additional merchant specific parameters</td><td></td></tr><tr><td>netAmount</td><td>string</td><td>false</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Final amount received.<br><em><strong>In case of purchase:</strong></em> amount paid to merchant.<br><em><strong>In case of refund:</strong></em> amount paid to user.</td><td>10.3</td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>ktkKscy0WJCbY3ghZcQAu-eOFq</td></tr><tr><td>originalTransactionId</td><td>string</td><td>false</td><td>uuid</td><td>Unique ID of the original transaction in m10 in case of refund</td><td>null</td></tr><tr><td>status</td><td>string</td><td>false</td><td>enum:<br>"CREATED”, “IN_PROGRESS”, “SUCCESS”, “CANCEL"<br>“FAILURE"</td><td>Order status in m10</td><td>FAILURE</td></tr><tr><td>transactionId</td><td>string</td><td>false</td><td>uuid</td><td>Unique ID of the processed transaction in m10. Null if order was canceled or not processed yet</td><td>de039a25-fd0d-44a5-9969-8d504ba4c4e8</td></tr><tr><td>transactionType</td><td>string</td><td>true</td><td>enum:<br>”PAYMENT”, “REFUND”<br>“TOKENIZATION”</td><td>Type of transaction</td><td>PAYMENT</td></tr><tr><td>userToken</td><td>string</td><td>false</td><td>uuid</td><td>Token for quick payment with saved m10 payment method when X-User-Tokenization header has value 'REQUIRED'</td><td>null</td></tr><tr><td>userdata</td><td>string</td><td>false</td><td>-</td><td>Any userdata previously supplied by the merchant, not parsed on m10 side, returned unchanged</td><td>-</td></tr></tbody></table>
 
 ***
 
@@ -358,18 +337,15 @@ Allows to get an operation details from m10 after the three days.
 
 _**Header**_
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                  | **Example**           |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | -------------------------------- | --------------------- |
-| Authorization | string   | true         | ^Bearer \[a-zA-Z0-9\_-\|]{5,24}:\[a-zA-Z0-9-]{36}           | Auth header with Bearer \<token> | Bearer \<AccessToken> |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>Authorization</td><td>string</td><td>true</td><td>^Bearer [a-zA-Z0-9_-|]{5,24}:[a-zA-Z0-9-]{36}</td><td>Auth header with Bearer &#x3C;token></td><td>Bearer &#x3C;AccessToken></td></tr></tbody></table>
 
 _**Path variable**_
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                | **Example**                          |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
-| transactionId | string   | false        | uuid                                                        | Unique ID of the processed transaction in m10. Null if order was canceled or not processed yet | 3fa85f64-5717-4562-b3fc-2c963f66afa6 |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>transactionId</td><td>string</td><td>false</td><td>uuid</td><td>Unique ID of the processed transaction in m10. Null if order was canceled or not processed yet</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr></tbody></table>
 
 **Request example:**
 
+{% code fullWidth="true" %}
 ```url
 curl -X 'GET' \
   'https://develop.m10payments.com/online-acquiring/api/v1/online-acquiring/transactions/
@@ -377,11 +353,13 @@ curl -X 'GET' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer <AccessToken>'
 ```
+{% endcode %}
 
 **Response example**
 
 _**Code:**_ 200 OK
 
+{% code fullWidth="true" %}
 ```json
 {
   "orderId": "kIC1IAznDeaeHC-7M2Kg1iLV5mY3yyMJo6PPrNDcA4R5QzcwWJ1CR6NEbmNUIAxd",
@@ -401,24 +379,11 @@ _**Code:**_ 200 OK
   }
 }
 ```
+{% endcode %}
 
 **Description**
 
-| **Name**              | **Type**   | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p>                | **Description**                                                                                                                                                                                                                                                   | **Example**                                                      |
-| --------------------- | ---------- | ------------ | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| orderId               | string     | true         | \[a-zA-Z0-9\_-]{20,64}                                                     | <p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p> | kIC1IAznDeaeHC-7M2Kg1iLV5mY3yyMJo6PPrNDcA4R5QzcwWJ1CR6NEbmNUIAxd |
-| transactionId         | string     | false        | uuid                                                                       | Unique ID of the processed transaction in m10.                                                                                                                                                                                                                    | 3fa85f64-5717-4562-b3fc-2c963f66afa6                             |
-| originalTransactionId | string     | false        | uuid                                                                       | Unique ID of the original transaction in m10 in case of refund                                                                                                                                                                                                    | 3fa85f64-5717-4562-b3fc-2c963f66afa6                             |
-| transactionType       | string     | true         | <p>enum:<br>”PAYMENT”, “REFUND”, “TOKENIZATION”</p>                        | Type of transaction                                                                                                                                                                                                                                               | PAYMENT                                                          |
-| currencyISO           | string     | true         | <p>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</p>                        | CurrencyISO of the transaction                                                                                                                                                                                                                                    | AZN                                                              |
-| amount                | string     | false        | <p>"maximum":<br>1000000000 "minimum":<br>1</p>                            | <p>Transaction amount.<br><em><strong>In case of purchase:</strong></em> amount paid by user.<br><em><strong>In case of refund:</strong></em> amount paid by merchant.</p>                                                                                        | 10.51                                                            |
-| netAmount             | string     | false        | <p>"maximum":<br>1000000000 "minimum":<br>1</p>                            | <p>Final amount received.<br><em><strong>In case of purchase:</strong></em> amount paid to merchant.<br><em><strong>In case of refund:</strong></em> amount paid to user.</p>                                                                                     | 10.3                                                             |
-| status                | string     | false        | <p>enum:<br>"CREATED”, “IN_PROGRESS”, “SUCCESS”, “CANCEL"<br>“FAILURE"</p> | Order status in m10                                                                                                                                                                                                                                               | CREATED                                                          |
-| createdAt             | string     | true         | date-time                                                                  | Moment when transaction was created                                                                                                                                                                                                                               | 2024-02-14T11:57:38.285Z                                         |
-| userToken             | string     | false        | uuid                                                                       | Token for quick payment with saved m10 payment method when X-User-Tokenization header has value 'REQUIRED'                                                                                                                                                        | 3fa85f64-5717-4562-b3fc-2c963f66afa6                             |
-| userdata              | string     | false        | -                                                                          | Any additional userdata                                                                                                                                                                                                                                           | -                                                                |
-| **metadata**          | **object** | **false**    | **-**                                                                      | **Additional parameters**                                                                                                                                                                                                                                         | **-**                                                            |
-| additionalProp1       | string     | false        | -                                                                          | -//-                                                                                                                                                                                                                                                              |                                                                  |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>kIC1IAznDeaeHC-7M2Kg1iLV5mY3yyMJo6PPrNDcA4R5QzcwWJ1CR6NEbmNUIAxd</td></tr><tr><td>transactionId</td><td>string</td><td>false</td><td>uuid</td><td>Unique ID of the processed transaction in m10.</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr><tr><td>originalTransactionId</td><td>string</td><td>false</td><td>uuid</td><td>Unique ID of the original transaction in m10 in case of refund</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr><tr><td>transactionType</td><td>string</td><td>true</td><td>enum:<br>”PAYMENT”, “REFUND”, “TOKENIZATION”</td><td>Type of transaction</td><td>PAYMENT</td></tr><tr><td>currencyISO</td><td>string</td><td>true</td><td>enum:<br>"AZN",<br>"USD",<br>"EUR",<br>"RUB"</td><td>CurrencyISO of the transaction</td><td>AZN</td></tr><tr><td>amount</td><td>string</td><td>false</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Transaction amount.<br><em><strong>In case of purchase:</strong></em> amount paid by user.<br><em><strong>In case of refund:</strong></em> amount paid by merchant.</td><td>10.51</td></tr><tr><td>netAmount</td><td>string</td><td>false</td><td>"maximum":<br>1000000000 "minimum":<br>1</td><td>Final amount received.<br><em><strong>In case of purchase:</strong></em> amount paid to merchant.<br><em><strong>In case of refund:</strong></em> amount paid to user.</td><td>10.3</td></tr><tr><td>status</td><td>string</td><td>false</td><td>enum:<br>"CREATED”, “IN_PROGRESS”, “SUCCESS”, “CANCEL"<br>“FAILURE"</td><td>Order status in m10</td><td>CREATED</td></tr><tr><td>createdAt</td><td>string</td><td>true</td><td>date-time</td><td>Moment when transaction was created</td><td>2024-02-14T11:57:38.285Z</td></tr><tr><td>userToken</td><td>string</td><td>false</td><td>uuid</td><td>Token for quick payment with saved m10 payment method when X-User-Tokenization header has value 'REQUIRED'</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr><tr><td>userdata</td><td>string</td><td>false</td><td>-</td><td>Any additional userdata</td><td>-</td></tr><tr><td><strong>metadata</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>Additional parameters</strong></td><td><strong>-</strong></td></tr><tr><td>additionalProp1</td><td>string</td><td>false</td><td>-</td><td>-//-</td><td></td></tr></tbody></table>
 
 ***
 
@@ -432,25 +397,15 @@ Creates a tokenization on m10. Returns on response a dynamic link tokenizationUr
 
 _**Header**_
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                | **Example**           |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------- |
-| Authorization | string   | true         | ^Bearer \[a-zA-Z0-9\_-\|]{5,24}:\[a-zA-Z0-9-]{36}           | Auth header with Bearer \<token>                                                               | Bearer \<AccessToken> |
-| X-User-Locale | string   | false        | -                                                           | Set of parameters that defines the user's language, region and any special variant preferences | en-GB                 |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>Authorization</td><td>string</td><td>true</td><td>^Bearer [a-zA-Z0-9_-|]{5,24}:[a-zA-Z0-9-]{36}</td><td>Auth header with Bearer &#x3C;token></td><td>Bearer &#x3C;AccessToken></td></tr><tr><td>X-User-Locale</td><td>string</td><td>false</td><td>-</td><td>Set of parameters that defines the user's language, region and any special variant preferences</td><td>en-GB</td></tr></tbody></table>
 
 _**Body**_
 
-| **Name**        | **Type**   | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                                                                                                                                                                                   | **Example**                                                      |
-| --------------- | ---------- | ------------ | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| orderId         | string     | true         | \[a-zA-Z0-9\_-]{20,64}                                      | <p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p> | kIC1IAznDeaeHC-7M2Kg1iLV5mY3yyMJo6PPrNDcA4R5QzcwWJ1CR6NEbmNUIAxd |
-| confirmURL      | string     | false        | url                                                         | Dynamic link or URL to redirect user if tokenization was successful                                                                                                                                                                                               | https://merchant.com/success/{tokenizationId}                    |
-| cancelURL       | string     | false        | url                                                         | Dynamic link or URL to redirect user if tokenization was canceled by user                                                                                                                                                                                         | https://merchant.com/cancel/{tokenizationId}                     |
-| errorURL        | string     | false        | url                                                         | Dynamic link or URL to redirect user if there was an error during tokenization process                                                                                                                                                                            | https://merchant.com/error/{tokenizationId}                      |
-| userdata        | string     | false        | -                                                           | Any userdata, not parsed on m10 side, returned unchanged in callback                                                                                                                                                                                              | -                                                                |
-| **metadata**    | **object** | **false**    | **-**                                                       | **Additional parameters**                                                                                                                                                                                                                                         | **-**                                                            |
-| additionalProp1 | string     | false        | -                                                           | Additional merchant specific parameters                                                                                                                                                                                                                           |                                                                  |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>orderId</td><td>string</td><td>true</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Unique order id for this merchant provided by the merchant</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td>kIC1IAznDeaeHC-7M2Kg1iLV5mY3yyMJo6PPrNDcA4R5QzcwWJ1CR6NEbmNUIAxd</td></tr><tr><td>confirmURL</td><td>string</td><td>false</td><td>url</td><td>Dynamic link or URL to redirect user if tokenization was successful</td><td>https://merchant.com/success/{tokenizationId}</td></tr><tr><td>cancelURL</td><td>string</td><td>false</td><td>url</td><td>Dynamic link or URL to redirect user if tokenization was canceled by user</td><td>https://merchant.com/cancel/{tokenizationId}</td></tr><tr><td>errorURL</td><td>string</td><td>false</td><td>url</td><td>Dynamic link or URL to redirect user if there was an error during tokenization process</td><td>https://merchant.com/error/{tokenizationId}</td></tr><tr><td>userdata</td><td>string</td><td>false</td><td>-</td><td>Any userdata, not parsed on m10 side, returned unchanged in callback</td><td>-</td></tr><tr><td><strong>metadata</strong></td><td><strong>object</strong></td><td><strong>false</strong></td><td><strong>-</strong></td><td><strong>Additional parameters</strong></td><td><strong>-</strong></td></tr><tr><td>additionalProp1</td><td>string</td><td>false</td><td>-</td><td>Additional merchant specific parameters</td><td></td></tr></tbody></table>
 
 **Request example:**
 
+{% code fullWidth="true" %}
 ```url
 curl -X 'POST' \
   'https://.../acquiring/api/v1/user-tokenization/actions/create' \
@@ -471,24 +426,24 @@ curl -X 'POST' \
   }
 }'
 ```
+{% endcode %}
 
 **Response example**
 
 _**Code:**_ 200 OK
 
+{% code fullWidth="true" %}
 ```json
 {
   "tokenizationUrl": "https://api.m10.az/online-payments/tokenization/{tokenizationId}",
   "operationId": "c8b1a4fa-e846-42d8-a53f-76d62d14f1d6"
 }
 ```
+{% endcode %}
 
 **Description**
 
-| **Name**        | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                                                                                                                                                                         | **Example**                                                      |
-| --------------- | -------- | ------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| tokenizationUrl | string   | true         | url                                                         | URL for merchant to show m10 tokenization page to user                                                                                                                                                                                                  | https://api.m10.az/online-payments/tokenization/{tokenizationId} |
-| operationId     | string   | false        | \[a-zA-Z0-9\_-]{20,64}                                      | <p>Operation id of the created tokenization request</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p> | _c8b1a4fa-e846-42d8-a53f-76d62d14f1d6_                           |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>tokenizationUrl</td><td>string</td><td>true</td><td>url</td><td>URL for merchant to show m10 tokenization page to user</td><td>https://api.m10.az/online-payments/tokenization/{tokenizationId}</td></tr><tr><td>operationId</td><td>string</td><td>false</td><td>[a-zA-Z0-9_-]{20,64}</td><td><p>Operation id of the created tokenization request</p><p><em>Description of pattern:</em><br><em>letters: a-z, A-Z.</em><br><em>numbers: 0-9.</em><br><em>symbols:</em> “_” and “-”.<br><em>Min: 20 characters</em><br><em>Max: 64 characters</em></p></td><td><em>c8b1a4fa-e846-42d8-a53f-76d62d14f1d6</em></td></tr></tbody></table>
 
 The token will be provided in Callback, but there is an additional endpoint to get token details by using a method **GET /api/v1/user-tokenization/{tokenizationId}**.
 
@@ -516,18 +471,15 @@ Allows to get the user token from m10. tokenizationId is same to operationId fro
 
 _**Header**_
 
-| **Name**      | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                  | **Example**           |
-| ------------- | -------- | ------------ | ----------------------------------------------------------- | -------------------------------- | --------------------- |
-| Authorization | string   | true         | ^Bearer \[a-zA-Z0-9\_-\|]{5,24}:\[a-zA-Z0-9-]{36}           | Auth header with Bearer \<token> | Bearer \<AccessToken> |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>Authorization</td><td>string</td><td>true</td><td>^Bearer [a-zA-Z0-9_-|]{5,24}:[a-zA-Z0-9-]{36}</td><td>Auth header with Bearer &#x3C;token></td><td>Bearer &#x3C;AccessToken></td></tr></tbody></table>
 
 _**Path variable**_
 
-| **Name**       | **Type** | **Required** | <p><strong>Pattern/</strong><br><strong>Format</strong></p> | **Description**                                                                                | **Example**                          |
-| -------------- | -------- | ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
-| tokenizationId | string   | false        | uuid                                                        | Unique ID of the processed transaction in m10. Null if order was canceled or not processed yet | 3fa85f64-5717-4562-b3fc-2c963f66afa6 |
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Name</strong></td><td><strong>Type</strong></td><td><strong>Required</strong></td><td><strong>Pattern/</strong><br><strong>Format</strong></td><td><strong>Description</strong></td><td><strong>Example</strong></td></tr><tr><td>tokenizationId</td><td>string</td><td>false</td><td>uuid</td><td>Unique ID of the processed transaction in m10. Null if order was canceled or not processed yet</td><td>3fa85f64-5717-4562-b3fc-2c963f66afa6</td></tr></tbody></table>
 
 **Request example:**
 
+{% code fullWidth="true" %}
 ```url
 curl -X 'GET' \
   'https://...acquiring/api/v1/user-tokenization/LFMxfXQModI1uu5isDypCgmZGIhPjEYMqts1Q1Rr0Whw3zC
@@ -535,17 +487,20 @@ curl -X 'GET' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer <AccessToken>'
 ```
+{% endcode %}
 
 **Response example**
 
 _**Code:**_ 200 OK
 
+{% code fullWidth="true" %}
 ```json
 {
   "id": "fi1Z2FhZajd7ROD4rtovEpNaLUAC6xR-t_cmjWVxPjF6NDODafaXvBtzQK_-4o",
   "userToken": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
+{% endcode %}
 
 **Description**
 
@@ -566,6 +521,7 @@ After merchant provides a URL, the static URL will be stored in our database dur
 Also contains the \`X-HMAC\` and \`X-Nonce\` headers. We will send a signing key for HMAC validation at the merchant's request.\
 &#xNAN;_&#x45;xample of the callback:_
 
+{% code fullWidth="true" %}
 ```json
 {
   "orderId": "c2U1-rLMOvxg_no0-x67v5K_A2XwWco1-2aSCnAm6Af_S6gFJ0V5oWX6",
@@ -585,6 +541,7 @@ Also contains the \`X-HMAC\` and \`X-Nonce\` headers. We will send a signing key
   }
 }
 ```
+{% endcode %}
 
 **Important**:
 
@@ -594,7 +551,7 @@ Also contains the \`X-HMAC\` and \`X-Nonce\` headers. We will send a signing key
   The key will be provided by m10.\
   The algorithm is HmacSHA256.
 
-<pre><code>{% hint style="warning" %}
+<pre data-full-width="true"><code>{% hint style="warning" %}
 **Warning hints**
 
 - The callback should be configured using the POST method.
@@ -621,12 +578,14 @@ Also contains the \`X-HMAC\` and \`X-Nonce\` headers. We will send a signing key
 After the tokenization process, a callback with the token is triggered. This callback contains the same information as the response from the request GET /api/v1/user-tokenization/{tokenizationId}\
 &#xNAN;_&#x45;xample of the callback:_
 
+{% code fullWidth="true" %}
 ```json
 {
   "id": "CrAYldtUbo86oJDObxnmX17Y3lnhZBOkA9qDdYsRC3GlBMjUsAanavNbIeeTZFYg",
   "userToken": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
+{% endcode %}
 
 ***
 
