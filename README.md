@@ -74,7 +74,7 @@ Error responses contain more detail about the error in the `x-error-code (header
 
 ## 1. Create a payment
 
-### **POST** `/api/v1/orders/actions/create-payment`
+### <mark style="color:blue;">**POST**</mark> `/api/v1/orders/actions/create-payment`
 
 Creates a payment operation on m10. Returns on response a dynamic link paymentURL to redirect the user and `transactionId` of the completed operation on m10.
 
@@ -117,7 +117,7 @@ If the callback is not received, use the method **Get order or transaction detai
 
 **Request example:**
 
-```
+```url
 curl -X 'POST' \
   'https://develop.m10payments.com/online-acquiring/api/v1/orders/actions/create-payment' \
   -H 'accept: */*' \
@@ -155,7 +155,7 @@ _**Code:**_ 200 OK
 
 _**Body:**_
 
-```
+```json
 {
   "paymentURL": "https://link.develop.m10payments.com/?link=https://develop.m10payments.com/
   acquiring?operationId=de039a25-fd0d-44a5-9969-8d504ba4c4e8&apn=com.m10&isi=1642308007&ibi=
@@ -175,7 +175,7 @@ _**Body:**_
 
 ### 2. Create a refund
 
-**POST** /api/v1/orders/actions/create-refund
+<mark style="color:blue;">**POST**</mark> `/api/v1/orders/actions/create-refund`
 
 Creates a refund operation on m10. The field originalTransactionId from the body of the request is same to transactionId from the payment request response.
 
@@ -201,7 +201,7 @@ _**Body**_
 
 **Request example:**
 
-```
+```url
 curl -X 'POST' \
   'https://develop.m10payments.com/online-acquiring/api/v1/orders/actions/create-refund' \
   -H 'accept: */*' \
@@ -227,7 +227,7 @@ _**Code:**_ 200 OK
 
 _**Body:**_
 
-```
+```json
 {
   "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
@@ -243,7 +243,7 @@ _**Body:**_
 
 ### 2. Create a refund
 
-**POST** /api/v1/orders/actions/create-refund
+<mark style="color:blue;">**POST**</mark> `/api/v1/orders/actions/create-refund`
 
 Creates a refund operation on m10. The field originalTransactionId from the body of the request is same to transactionId from the payment request response.
 
@@ -269,7 +269,7 @@ _**Body**_
 
 **Request example:**
 
-```
+```url
 curl -X 'POST' \
   'https://develop.m10payments.com/online-acquiring/api/v1/orders/actions/create-refund' \
   -H 'accept: */*' \
@@ -295,7 +295,7 @@ _**Code:**_ 200 OK
 
 _**Body:**_
 
-```
+```json
 {
   "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
@@ -311,7 +311,7 @@ _**Body:**_
 
 ### 3. Get order details
 
-**GET** /api/v1/orders/{orderId}
+<mark style="color:green;">**GET**</mark> `/api/v1/orders/{orderId}`
 
 Allows to get an operation details from m10 within the first three days.
 
@@ -335,7 +335,7 @@ _**Path variable**_
 
 **Request example:**
 
-```
+```url
 curl -X 'GET' \
   'https://develop.m10payments.com/online-acquiring/api/v1/online-acquiring/orders/
   ktkKscy0WJCbY3ghZcQAu-eOFq' \
@@ -347,7 +347,7 @@ curl -X 'GET' \
 
 _**Code:**_ 200 OK
 
-```
+```json
 {
   "amount": "10.51",
   "currencyISO": "AZN",
@@ -384,7 +384,7 @@ _**Code:**_ 200 OK
 
 ### 4. Get transaction details
 
-**GET** /api/v1/transactions/{transactionId}
+<mark style="color:green;">**GET**</mark> `/api/v1/transactions/{transactionId}`
 
 Allows to get an operation details from m10 after the three days.
 
@@ -404,7 +404,7 @@ _**Path variable**_
 
 **Request example:**
 
-```
+```url
 curl -X 'GET' \
   'https://develop.m10payments.com/online-acquiring/api/v1/online-acquiring/transactions/
   3fa85f64-5717-4562-b3fc-2c963f66afa6' \
@@ -416,7 +416,7 @@ curl -X 'GET' \
 
 _**Code:**_ 200 OK
 
-```
+```json
 {
   "orderId": "kIC1IAznDeaeHC-7M2Kg1iLV5mY3yyMJo6PPrNDcA4R5QzcwWJ1CR6NEbmNUIAxd",
   "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -458,7 +458,7 @@ _**Code:**_ 200 OK
 
 ### 5. Create a tokenization on m10
 
-**POST** /api/v1/user-tokenization/actions/create
+<mark style="color:blue;">**POST**</mark> `/api/v1/user-tokenization/actions/create`
 
 Creates a tokenization on m10. Returns on response a dynamic link tokenizationUrl to redirect the user and operationId of the completed operation on m10.
 
@@ -485,7 +485,7 @@ _**Body**_
 
 **Request example:**
 
-```
+```url
 curl -X 'POST' \
   'https://.../acquiring/api/v1/user-tokenization/actions/create' \
   -H 'accept: */*' \
@@ -510,7 +510,7 @@ curl -X 'POST' \
 
 _**Code:**_ 200 OK
 
-```
+```json
 {
   "tokenizationUrl": "https://api.m10.az/online-payments/tokenization/{tokenizationId}",
   "operationId": "c8b1a4fa-e846-42d8-a53f-76d62d14f1d6"
@@ -528,15 +528,25 @@ The token will be provided in Callback, but there is an additional endpoint to g
 
 The tokenizationId is identical to the orderId from the create tokenization or create payment request.
 
+{% hint style="warning" %}
+The token will be provided in Callback, but there is an additional endpoint to get token details by using a method **GET /api/v1/user-tokenization/{tokenizationId}**.
+
+The tokenizationId is identical to the orderId from the create tokenization or create payment request.
+{% endhint %}
+
+
+
 ***
 
 ### 6. Get a token information
 
-**GET** /api/v1/user-tokenization/{tokenizationId}
+<mark style="color:green;">**GET**</mark> `/api/v1/user-tokenization/{tokenizationId}`
 
 Allows to get the user token from m10. tokenizationId is same to operationId from the create token response.
 
-To check the token information after **three days**, please use the method **GET /api/v1/transactions/{transactionId}**.
+{% include ".gitbook/includes/warning.md" %}
+
+
 
 **Request parameters:**
 
@@ -554,7 +564,7 @@ _**Path variable**_
 
 **Request example:**
 
-```
+```url
 curl -X 'GET' \
   'https://...acquiring/api/v1/user-tokenization/LFMxfXQModI1uu5isDypCgmZGIhPjEYMqts1Q1Rr0Whw3zC
   MbVsj_H' \
@@ -566,7 +576,7 @@ curl -X 'GET' \
 
 _**Code:**_ 200 OK
 
-```
+```json
 {
   "id": "fi1Z2FhZajd7ROD4rtovEpNaLUAC6xR-t_cmjWVxPjF6NDODafaXvBtzQK_-4o",
   "userToken": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
@@ -592,7 +602,7 @@ After merchant provides a URL, the static URL will be stored in our database dur
 Also contains the \`X-HMAC\` and \`X-Nonce\` headers. We will send a signing key for HMAC validation at the merchant's request.\
 &#xNAN;_&#x45;xample of the callback:_
 
-```
+```json
 {
   "orderId": "c2U1-rLMOvxg_no0-x67v5K_A2XwWco1-2aSCnAm6Af_S6gFJ0V5oWX6",
   "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -632,12 +642,22 @@ Also contains the \`X-HMAC\` and \`X-Nonce\` headers. We will send a signing key
 {% endhint %}
 </code></pre>
 
+{% hint style="warning" %}
+**Important**
+
+* The callback should be configured using the **POST method**.
+* **X-Nonce** is a random string, it is necessary to check that it is not repeated, i.e. each message contains a unique value in this field. It’s generated by m10 for each request.
+* **X-HMAC** is a hash of the response body in **hex** format.\
+  The key will be provided by m10.\
+  The algorithm is HmacSHA256.
+{% endhint %}
+
 #### **Callback with the token**
 
 After the tokenization process, a callback with the token is triggered. This callback contains the same information as the response from the request GET /api/v1/user-tokenization/{tokenizationId}\
 &#xNAN;_&#x45;xample of the callback:_
 
-```
+```json
 {
   "id": "CrAYldtUbo86oJDObxnmX17Y3lnhZBOkA9qDdYsRC3GlBMjUsAanavNbIeeTZFYg",
   "userToken": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
@@ -656,7 +676,7 @@ After the tokenization process, a callback with the token is triggered. This cal
     \
     &#xNAN;_&#x48;ere is the example of the payment request on the **Prod env**:_
 
-    ```
+    ```url
     curl --location 'https://api.m10.az/acquiring/api/v1/orders/actions/create-payment' \
     --header 'Authorization: Bearer token:token_id' \
     --header 'X-User-Tokenization: NOT_REQUIRED' \
